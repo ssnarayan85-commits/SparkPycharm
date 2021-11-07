@@ -1,5 +1,6 @@
 from pyspark.sql import SparkSession
 
+#spark session
 spark = SparkSession.builder\
         .master("local") \
         .appName("firstfile") \
