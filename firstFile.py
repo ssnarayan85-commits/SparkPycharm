@@ -12,6 +12,9 @@ spark = SparkSession.builder\
         .appName("firstfile") \
         .getOrCreate()
 
+#data frame sample
+data = [('k1', 'v1'), ('k2','v2'), ('k3','v')]
+columns = ("key", "val")
 #user defined function
 def udf_add_fullname():
     fullnameUDF = udf(lambda x : add_fullname_udf(x), StringType())
