@@ -9,6 +9,7 @@ spark = SparkSession.builder\
         .appName("firstfile") \
         .getOrCreate()
 
+#user defined function
 def udf_add_fullname():
     fullnameUDF = udf(lambda x : add_fullname_udf(x), StringType())
     return fullnameUDF
