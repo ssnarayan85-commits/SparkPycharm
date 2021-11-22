@@ -9,8 +9,8 @@ spark = SparkSession.builder\
         .appName("firstfile") \
         .getOrCreate()
 
-# def add_fullname_udf(firstname, lastname):
-#         print( concat(firstname, " ",  lastname))
+def add_fullname_udf(firstname, lastname):
+        print( concat(firstname, " ",  lastname))
 
 data = [('sasi', 'rekha', 1000), ('vasantha','kumar',2000), ('shelby','zacharia',3000)]
 columns = ("Firstname", "Lastname", "Salary")
