@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import concat,lit
+from pyspark.sql.functions import concat,lit,udf
 import pyspark.sql.functions as F
 import pytest # added a new module
 
@@ -9,7 +9,11 @@ spark = SparkSession.builder\
         .appName("firstfile") \
         .getOrCreate()
 
-def add_fullname_udf(firstname, lastname):
+def udf_add_fullname():
+    fullnameUDF = udf(lambda x : add_fullname_udf(x), StringType())
+    return fullnameUDF
+
+def add_fullname_udf(str):
         print( concat(firstname, " ",  lastname))
 
 data = [('sasi', 'rekha', 1000), ('vasantha','kumar',2000), ('shelby','zacharia',3000)]
